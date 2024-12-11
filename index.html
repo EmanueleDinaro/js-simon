@@ -10,8 +10,27 @@
 <body class="container text-center mt-5">
     <h1 id="countdown"></h1>
     <span id="tips-form">Remember the following numbers for the next 30 seconds</span>
+    <div class="row m-3">
+        <div class="col">
+            <div class="rnd-number">1</div>
+        </div>
+        <div class="col">
+            <div class="rnd-number">2</div>
+        </div>
+        <div class="col">
+            <div class="rnd-number">3</div>
+        </div>
+        <div class="col">
+            <div class="rnd-number">4</div>
+        </div>
+        <div class="col">
+            <div class="rnd-number">5</div>
+        </div>
+    </div>
+    <button type="submit" id="start-game" class="btn btn-primary">Simon Says</button>
+    
     <form id="form" class="">
-        <row class="row mt-3">
+        <row class="row mt-5">
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="number-one">
@@ -43,8 +62,8 @@
                 </div>
             </div>
         </row>
-        <button type="submit" id="start-game" class="btn btn-primary">Simon Says</button>
-        <button type="submit" id="compare-number" class="btn btn-primary d-none">Compare Numbers</button>
+        <!-- <button type="submit" id="start-game" class="btn btn-primary">Simon Says</button> -->
+        <button type="submit" id="compare-number" class="btn btn-primary">Compare Numbers</button>
     </form>
 
    

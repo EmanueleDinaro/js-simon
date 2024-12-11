@@ -41,15 +41,18 @@ let seconds = 10
 
 countdownElm.innerHTML = 'Click Simon Says to starts play'
 // DOM EVENTS
-formElm.addEventListener('submit', function(event) {
+startGameBtnElm.addEventListener('submit', function(event) {
     event.preventDefault();
     
     timer = setInterval(() => {
         if(seconds === 0) {
             clearInterval(timer)
+            formElm.classList.remove('d-none')
         } else {
         countdownElm.innerHTML = seconds
         }
         seconds--;
     }, 1000);
+
+
 })
