@@ -1,4 +1,5 @@
-/*Descrizione: Visualizzare in pagina 5 numeri casuali.
+/*Descrizione: 
+Visualizzare all'interno di 5 input 5 numeri casuali.
 Da lì parte un timer di 30 secondi. 
 Dopo 30 secondi i numeri scompaiono
 appaiono invece 5 input in cui l'utente deve inserire i numeri che ha visto precedentemente,
@@ -25,3 +26,30 @@ const numberFiveElm = document.getElementById('number-five');
 const startGameBtnElm = document.getElementById('start-game')
 const compareNumberBtnElm = document.getElementById('compare-number')
 
+// FUNCTIONS
+function getRndInteger(min, max) {
+    return Math.floor(Math.random() * (max - min) ) + min;
+  }
+
+// ARRAYS
+let randomNumbers = [];
+
+// VARIABLES
+let timer;
+let seconds = 10
+
+
+countdownElm.innerHTML = 'Click Simon Says to starts play'
+// DOM EVENTS
+formElm.addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    timer = setInterval(() => {
+        if(seconds === 0) {
+            clearInterval(timer)
+        } else {
+        countdownElm.innerHTML = seconds
+        }
+        seconds--;
+    }, 1000);
+})
