@@ -101,12 +101,12 @@ compareNumbersBtnElm.addEventListener('click', function(event) {
 
     // INCLUDES METHOD
     for(let i = 0; i < userNumbersArray.length; i++) {
-        if (randomNumbersArray.includes(userNumbersArray)) {
-            correctNumbers.push(randomNumbersArray[i])
+        if (randomNumbersArray.includes(userNumbersArray[i])) {
+            correctNumbers.push(userNumbersArray[i])
         }
     }    
 
-    resultElm.innerHTML = `Hai indovinato ${correctNumbers.lenght} numeri!`;
+    resultElm.innerHTML = `Hai indovinato ${correctNumbers.length} numeri!`;
 
     if (correctNumbers.length > 0) {
         correctNumbersElm.innerHTML = `Numeri indovinati: ${correctNumbers.join(', ')}`;
