@@ -31,42 +31,45 @@
     <button id="start-game" class="btn btn-primary m-3">Simon Says</button>
     
     <form id="form" class="d-none">
-        <p id="tips-input">Inserisci nell'ordine che preferisci i numeri che hai memorizzato e clicca sul tasto "Compare Numbers"</p>
-        <row class="row mt-5">
+        <p id="tips-input">Inserisci nell'ordine che preferisci i numeri che hai memorizzato e clicca sul tasto "Confronta"</p>
+        <row class="row m-3">
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="number-one">
-                    <label for="number-one">Number 1</label>
+                    <label for="number-one"></label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="number-two">
-                    <label for="number-two">Number 2</label>
+                    <label for="number-two"></label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="number-three">
-                    <label for="number-three">Number 3</label>
+                    <label for="number-three"></label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="number-four">
-                    <label for="number-four">Number 4</label>
+                    <label for="number-four"></label>
                 </div>
             </div>
             <div class="col">
                 <div class="form-floating mb-3">
                     <input type="number" class="form-control" id="number-five">
-                    <label for="number-five">Number 5</label>
+                    <label for="number-five"></label>
                 </div>
             </div>
         </row>
     </form>
-    <button type="submit" id="compare-numbers" class="btn btn-primary d-none">Compare Numbers</button>
+    <button type="submit" id="compare-numbers" class="btn btn-primary d-none">Confronta</button>
     <p id="result"></p>
+    <p id="correct-numbers"></p>
+    <button type="submit" id="refresh" class="btn btn-primary d-none">Riavvia</button>
+
    
     <script src="js/script.js"></script>
 </body>

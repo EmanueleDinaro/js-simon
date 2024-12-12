@@ -34,16 +34,17 @@ const numberFiveElm = document.getElementById('number-five');
 
 const compareNumbersBtnElm = document.getElementById('compare-numbers')
 const resultElm = document.getElementById('result')
+const correctNumbersElm = document.getElementById('correct-numbers')
+const refreshBtnElm = document.getElementById('refresh')
 
 
 // FUNCTIONS
-/*function getRndInteger(min, max) {
+function getRndInteger(min, max) {
     return Math.floor(Math.random() * (max - min) ) + min;
-}*/
-function generateRandomNumber() {
-    return Math.floor(Math.random() * 100); // Numero casuale tra 0 e 99
 }
-
+/*function generateRandomNumber() {
+    return Math.floor(Math.random() * 100); // Numero casuale tra 0 e 99
+}*/
 
 // ARRAYS
 const randomNumbersArray = [];
@@ -75,15 +76,37 @@ startGameBtnElm.addEventListener('click', function(event) {
     }, 1000);
 
     for (let i = 0; i < randomNumbers.length; i++) { // CICLO PER LA "LUNGHEZZA" DEL NUMERO DI VOLTE IN CUI LA VARIABILE E' PRESENTE
-        const singleRandomNumber = generateRandomNumber(); // GENERO RANDOMICAMENTE UN NUMERO DA 0 A 100 E LO INSERISCO ALL'INTERNO DELLA VARIABILE singleRandomNumber
+        const singleRandomNumber = getRndInteger(1, 99); // GENERO RANDOMICAMENTE UN NUMERO DA 0 A 100 E LO INSERISCO ALL'INTERNO DELLA VARIABILE singleRandomNumber
         randomNumbers[i].innerHTML = singleRandomNumber; // INSERISCO IL SINGOLO NUMERO RANDOMICO ALL'INTERNO DEL "<div> rnd-number" GRAZIE ALL'inner.HTML
         randomNumbersArray.push(singleRandomNumber); //PUSHO ALL'INTERNO DELL'ARRAY VUOTO IL SINGOLO NUMERO RANDOMICO GENERATO, PER TUTTA LA DURATA DEL CICLO
     }
 })
 
 compareNumbersBtnElm.addEventListener('click', function(event) {
+    compareNumbersBtnElm.classList.add('d-none')
+    refreshBtnElm.classList.remove('d-none')
     for (let i = 0; i < inputFormElm.length; i++) {
         userNumbersArray.push(parseFloat(inputFormElm[i].value))
     }
     console.log(userNumbersArray)
+
+    let matchCount = 0;
+    for (let i = 0; i < randomNumbersArray.length; i++) {
+        if (randomNumbersArray[i] === userNumbersArray[i]) {
+            matchCount++;
+            correctNumbers.push(randomNumbersArray[i]);  // pusho i numeri corretti all'interno dell'array correctNumbers
+        }
+    }
+
+    resultElm.innerHTML = `Hai indovinato ${matchCount} numeri!`;
+
+    if (correctNumbers.length > 0) {
+        correctNumbersElm.innerHTML = `Numeri indovinati: ${correctNumbers.join(', ')}`;
+    } else {
+        correctNumbersElm.innerHTML = 'Non hai indovinato nessun numero.';
+    }
+})
+
+refreshBtnElm.addEventListener('click', function(event) {
+    location.reload()
 })
