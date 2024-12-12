@@ -82,9 +82,11 @@ startGameBtnElm.addEventListener('click', function(event) {
     }
 })
 
-compareNumbersBtnElm.addEventListener('click', function(event) {
+formElm.addEventListener('submit', function(event) {
+    event.preventDefault()
     compareNumbersBtnElm.classList.add('d-none')
     refreshBtnElm.classList.remove('d-none')
+    
     for (let i = 0; i < inputFormElm.length; i++) {
         userNumbersArray.push(parseFloat(inputFormElm[i].value))
     }
