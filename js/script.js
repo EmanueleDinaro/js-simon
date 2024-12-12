@@ -53,7 +53,7 @@ const correctNumbers = []
 
 // VARIABLES
 let timer;
-let seconds = 30
+let seconds = 5
 
 // DOM EVENTS
 countdownElm.innerHTML = 'Clicca "Simon Says" per iniziare a giocare'
@@ -90,15 +90,23 @@ compareNumbersBtnElm.addEventListener('click', function(event) {
     }
     console.log(userNumbersArray)
 
-    let matchCount = 0;
+    /*let matchCount = 0;
     for (let i = 0; i < randomNumbersArray.length; i++) {
         if (randomNumbersArray[i] === userNumbersArray[i]) {
             matchCount++;
             correctNumbers.push(randomNumbersArray[i]);  // pusho i numeri corretti all'interno dell'array correctNumbers
         }
-    }
+    }*/
 
-    resultElm.innerHTML = `Hai indovinato ${matchCount} numeri!`;
+
+    // INCLUDES METHOD
+    for(let i = 0; i < userNumbersArray.length; i++) {
+        if (randomNumbersArray.includes(userNumbersArray)) {
+            correctNumbers.push(randomNumbersArray[i])
+        }
+    }    
+
+    resultElm.innerHTML = `Hai indovinato ${correctNumbers.lenght} numeri!`;
 
     if (correctNumbers.length > 0) {
         correctNumbersElm.innerHTML = `Numeri indovinati: ${correctNumbers.join(', ')}`;
