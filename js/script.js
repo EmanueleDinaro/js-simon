@@ -32,7 +32,7 @@ const numberThreeElm = document.getElementById('number-three');
 const numberFourElm = document.getElementById('number-four');
 const numberFiveElm = document.getElementById('number-five');
 
-const compareNumberBtnElm = document.getElementById('compare-number')
+const compareNumbersBtnElm = document.getElementById('compare-numbers')
 const resultElm = document.getElementById('result')
 
 
@@ -47,25 +47,28 @@ function generateRandomNumber() {
 
 // ARRAYS
 const randomNumbersArray = [];
+const userNumbersArray = [];
+const correctNumbers = []
 
 // VARIABLES
+let timer;
 let seconds = 10
 
-countdownElm.innerHTML = 'Clicca "Simon Says" per iniziare a giocare'
 // DOM EVENTS
+countdownElm.innerHTML = 'Clicca "Simon Says" per iniziare a giocare'
 startGameBtnElm.addEventListener('click', function(event) {
-    event.preventDefault();
-    
-    timer = setInterval(() => {
+    timer = setInterval(function() {
         if(seconds <= 0) {
             clearInterval(timer)
             formElm.classList.remove('d-none')
+            compareNumbersBtnElm.classList.remove('d-none')
             startGameBtnElm.classList.add('d-none')
             randomNumbersContainer.classList.add('d-none')
             countdownElm.classList.add('d-none')
         } else {
         countdownElm.innerHTML = seconds
         startGameBtnElm.classList.add('d-none')
+        compareNumbersBtnElm.classList.add('d-none')
         randomNumbersContainer.classList.remove('d-none')
         }
         seconds--;
@@ -76,6 +79,11 @@ startGameBtnElm.addEventListener('click', function(event) {
         randomNumbers[i].innerHTML = singleRandomNumber; // INSERISCO IL SINGOLO NUMERO RANDOMICO ALL'INTERNO DEL "<div> rnd-number" GRAZIE ALL'inner.HTML
         randomNumbersArray.push(singleRandomNumber); //PUSHO ALL'INTERNO DELL'ARRAY VUOTO IL SINGOLO NUMERO RANDOMICO GENERATO, PER TUTTA LA DURATA DEL CICLO
     }
-    
-    
+})
+
+compareNumbersBtnElm.addEventListener('click', function(event) {
+    for (let i = 0; i < inputFormElm.length; i++) {
+        userNumbersArray.push(parseFloat(inputFormElm[i].value))
+    }
+    console.log(userNumbersArray)
 })
