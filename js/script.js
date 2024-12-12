@@ -53,7 +53,7 @@ const correctNumbers = []
 
 // VARIABLES
 let timer;
-let seconds = 10
+let seconds = 30
 
 // DOM EVENTS
 countdownElm.innerHTML = 'Clicca "Simon Says" per iniziare a giocare'
